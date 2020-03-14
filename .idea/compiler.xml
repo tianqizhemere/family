@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="turntable-common-db" />
+        <module name="turntable-eureka" />
+        <module name="turntable-service-turntable-api" />
+        <module name="turntable-service-turntable" />
+        <module name="turntable-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="turntable-service-awards-api" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="turntable" options="-parameters" />
+      <module name="turntable-common" options="-parameters" />
+      <module name="turntable-common-db" options="-parameters" />
+      <module name="turntable-eureka" options="-parameters" />
+      <module name="turntable-service" options="-parameters" />
+      <module name="turntable-service-api" options="-parameters" />
+      <module name="turntable-service-awards-api" options="-parameters" />
+      <module name="turntable-service-turntable" options="-parameters" />
+      <module name="turntable-service-turntable-api" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,6 @@
+# Project exclude paths
+/turntable-common/target/
+/turntable-common-db/target/
+/turntable-eureka/target/
+/turntable-service/turntable-service-turntable/target/
+/turntable-service-api/turntable-service-turntable-api/target/
