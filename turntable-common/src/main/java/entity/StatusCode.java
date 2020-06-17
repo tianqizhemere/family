@@ -5,6 +5,7 @@ package entity;
  * @author wukh
  */
 public class StatusCode {
+
     /** 成功 */
     public static final int OK = 20000;
 

@@ -1,7 +1,5 @@
 CREATE TABLE `turntable_awards` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `create_time` datetime DEFAULT NULL,
-  `modify_time` datetime DEFAULT NULL,
   `turntable_id` int DEFAULT NULL,
   `awards_id` int DEFAULT NULL,
   PRIMARY KEY (`id`)

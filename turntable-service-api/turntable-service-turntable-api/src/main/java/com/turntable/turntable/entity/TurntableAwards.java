@@ -15,9 +15,11 @@ public class TurntableAwards {
 
     @TableId(type = IdType.AUTO)
     private Long id;
-    private Date createTime;
-    private Date modifyTime;
+
+    /** 轮盘id */
     private Long turntableId;
+
+    /** 轮盘子选择id */
     private Long awardsId;
 
     public Long getId() {
@@ -26,22 +28,6 @@ public class TurntableAwards {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
     }
 
     public Long getTurntableId() {

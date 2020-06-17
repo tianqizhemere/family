@@ -5,9 +5,10 @@ spring:
     name: turntable
   datasource:
     driver-class-name:  com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://66.42.79.47:3306/domestic?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-    password: 123456
+    url: jdbc:mysql://124.71.97.40:3306/domestic?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: ENC(Gri54jrP8xEGxDnSCI90Ng==)
+# java -cp  G:\apache-maven-3.6.1\repository\com\github\ulisesbocchio\jasypt-spring-boot-starter\2.0.0 org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="Wkh4449456" password=layanan algorithm=PBEWithMD5AndDES
+    password: ENC(yxD7TaLzhRfgKPOE78sBc4uiMRiKk/Hb)
 #eureka:
 #  client:
 #    service-url:
@@ -46,3 +47,6 @@ hystrix:
           thread:
             timeoutInMilliseconds: 10000
           strategy: SEMAPHORE
+jasypt:
+  encryptor:
+    password: TianQi

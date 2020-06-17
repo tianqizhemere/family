@@ -57,8 +57,6 @@ public class TurntableServiceImpl extends ServiceImpl<TurntableMapper, Turntable
             awardsMapper.insert(award);
             TurntableAwards turntableAwards = new TurntableAwards();
             turntableAwards.setAwardsId(award.getId());
-            turntableAwards.setCreateTime(new Date());
-            turntableAwards.setModifyTime(new Date());
             turntableAwards.setTurntableId(turntable.getId());
             turntableAwardsMapper.insert(turntableAwards);
         }
@@ -73,7 +71,7 @@ public class TurntableServiceImpl extends ServiceImpl<TurntableMapper, Turntable
             }
         }
         turntableMapper.deleteById(id);
-        Map map = new HashMap();
+        Map<String, Object> map = new HashMap<>();
         map.put("turntable_id", id);
         turntableAwardsMapper.deleteByMap(map);
     }
