@@ -7,7 +7,6 @@ spring:
     driver-class-name:  com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://124.71.97.40:3306/domestic?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: ENC(Gri54jrP8xEGxDnSCI90Ng==)
-# java -cp  G:\apache-maven-3.6.1\repository\com\github\ulisesbocchio\jasypt-spring-boot-starter\2.0.0 org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="Wkh4449456" password=layanan algorithm=PBEWithMD5AndDES
     password: ENC(yxD7TaLzhRfgKPOE78sBc4uiMRiKk/Hb)
 #eureka:
 #  client:
@@ -20,7 +19,7 @@ feign:
     enabled: true
 # mybatis-plus相关配置
 mybatis-plus:
-  # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
+  # xml扫描
   mapper-locations: classpath:mapper/*.xml
   # 以下配置均有默认值,可以不设置
   global-config:
@@ -39,13 +38,14 @@ mybatis-plus:
     # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #hystrix 配置
+
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000
+            timeoutInMilliseconds: 8000
           strategy: SEMAPHORE
 jasypt:
   encryptor:
