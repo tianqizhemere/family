@@ -20,9 +20,11 @@ public interface RankingMapper extends BaseMapper<Ranking> {
      * 查询排行榜所有数据
      * @return
      */
-    @Select("select t.title as 'option',count(*),r.title_id from ranking r\n" +
-            "left join turntable t on r.title_id = t.id\n" +
-            "group by title,r.title_id\n" +
+    @Select("select count(*), t.id titleId, t.title 'option' from ranking r\n" +
+            "left join awards a on r.awards_id = a.id\n" +
+            "left join turntable_awards ta on ta.awards_id = a.id\n" +
+            "left join turntable t on t.id = ta.turntable_id\n" +
+            "group by t.title, t.id\n" +
             "order by count(*) desc")
     List<Ranking> findList();
 
@@ -31,10 +33,11 @@ public interface RankingMapper extends BaseMapper<Ranking> {
      * @param id
      * @return
      */
-    @Select("select count(*) count, r.awards_name from ranking r\n" +
-            "left join turntable t on t.id = r.title_id\n" +
-            "where r.title_id = #{id}\n" +
-            "group by awards_name\n" +
+    @Select("select count(*) count, a.name from ranking r\n" +
+            "left join awards a on r.awards_id = a.id\n" +
+            "left join turntable_awards ta on ta.awards_id = a.id\n" +
+            "where ta.turntable_id = #{id}\n" +
+            "group by a.name\n" +
             "order by count(*) desc")
     List<Map<String, Object>> findByTurntableId(@Param("id") Long id);
 
@@ -43,10 +46,12 @@ public interface RankingMapper extends BaseMapper<Ranking> {
      * @param today 参数
      * @return
      */
-    @Select(" select t.title as 'option',count(*),r.title_id from ranking r\n" +
-            " left join turntable t on t.id = r.title_id\n" +
+    @Select(" select count(*), t.id , t.title 'option' from ranking r\n" +
+            " left join awards a on r.awards_id = a.id\n" +
+            " left join turntable_awards ta on ta.awards_id = a.id\n" +
+            " left join turntable t on t.id = ta.turntable_id\n" +
             " where r.create_time like '${today} %'\n" +
-            " group by title,r.title_id\n" +
+            " group by t.title, t.id\n" +
             " order by count(*) desc")
     List<Ranking> findByToDay(@Param("today") String today);
 
@@ -56,10 +61,11 @@ public interface RankingMapper extends BaseMapper<Ranking> {
      * @param day 当前日期
      * @return
      */
-    @Select("select count(*) count, r.awards_name from ranking r\n" +
-            "left join turntable t on t.id = r.title_id\n" +
-            "where r.title_id = #{titleId} and r.create_time like '${day} %'\n" +
-            "group by awards_name\n" +
+    @Select("select count(*) count, a.name from ranking r\n" +
+            "left join awards a on r.awards_id = a.id\n" +
+            "left join turntable_awards ta on ta.awards_id = a.id\n" +
+            "where ta.turntable_id = #{titleId} and (r.create_time BETWEEN '${day} 00:00:00' and '${day} 23:59:59')\n" +
+            "group by a.name\n" +
             "order by count(*) desc")
     List<Map<String, Object>> findByDay(@Param("titleId") Long titleId, @Param("day")String day);
 }

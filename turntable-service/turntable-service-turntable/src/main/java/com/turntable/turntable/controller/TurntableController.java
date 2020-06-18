@@ -1,5 +1,6 @@
 package com.turntable.turntable.controller;
 
+import com.turntable.turntable.bean.TurntableBean;
 import com.turntable.turntable.entity.Turntable;
 import com.turntable.turntable.service.TurntableService;
 import entity.Result;
@@ -64,5 +65,16 @@ public class TurntableController {
     public Result delete(@RequestParam("id") Long id){
         turntableService.delete(id);
         return new Result<>(true, StatusCode.OK, "数据删除成功");
+    }
+
+    /**
+     * 修改转盘
+     * @param turntableBean 转盘Javabean
+     * @return
+     */
+    @PostMapping(value = "/edit")
+    public Result edit(@RequestBody TurntableBean turntableBean) {
+        turntableService.edit(turntableBean);
+        return new Result<>(true, StatusCode.OK, "修改数据成功");
     }
 }

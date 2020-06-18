@@ -1,6 +1,7 @@
 package com.turntable.turntable.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.turntable.turntable.bean.RankingBean;
 import com.turntable.turntable.entity.Ranking;
 
 import java.util.List;
@@ -15,10 +16,10 @@ public interface RankingService extends IService<Ranking> {
 
     /**
      * 新增排行榜
-     * @param ranking
+     * @param rankingBean 排行榜javabean
      * @return
      */
-    Integer add(Ranking ranking);
+    Integer add(RankingBean rankingBean);
 
     /**
      * 查询排行榜所有数据

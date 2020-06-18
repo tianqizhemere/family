@@ -1,9 +1,11 @@
 package com.turntable.turntable.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.turntable.turntable.bean.RankingBean;
 import com.turntable.turntable.dao.RankingMapper;
 import com.turntable.turntable.entity.Ranking;
 import com.turntable.turntable.service.RankingService;
+import entity.BeanUtils;
 import entity.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +29,10 @@ public class RankingServiceImpl extends ServiceImpl<RankingMapper, Ranking> impl
     private RankingMapper rankingMapper;
 
     @Override
-    public Integer add(Ranking ranking) {
-        if (ranking != null && ranking.getTitleId() != null && ranking.getTitleId() != 0) {
+    public Integer add(RankingBean rankingBean) {
+        Ranking ranking = new Ranking();
+        BeanUtils.copyProperties(ranking, rankingBean);
+        if (ranking.getTitleId() != null && ranking.getTitleId() != 0) {
             ranking.setCreateTime(new Date());
             ranking.setModifyTime(new Date());
             return rankingMapper.insert(ranking);
@@ -50,8 +54,7 @@ public class RankingServiceImpl extends ServiceImpl<RankingMapper, Ranking> impl
 
     @Override
     public List<Map<String, Object>> findByTurntableId(Long id) {
-        List<Map<String, Object>> list = rankingMapper.findByTurntableId(id);
-        return list;
+        return rankingMapper.findByTurntableId(id);
     }
 
     @Override

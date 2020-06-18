@@ -1,5 +1,6 @@
 package com.turntable.turntable.controller;
 
+import com.turntable.turntable.bean.RankingBean;
 import com.turntable.turntable.entity.Ranking;
 import com.turntable.turntable.service.RankingService;
 import entity.Result;
@@ -41,12 +42,12 @@ public class RankingController {
 
     /**
      * 新增排行榜
-     * @param ranking 排行榜信息
+     * @param rankingBean 排行榜信息
      * @return
      */
     @PostMapping(value = "/add")
-    public Result add(@RequestBody Ranking ranking){
-        rankingService.add(ranking);
+    public Result add(@RequestBody RankingBean rankingBean){
+        rankingService.add(rankingBean);
         return new Result<>(true, StatusCode.OK, "数据插入成功");
     }
 

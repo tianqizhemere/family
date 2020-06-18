@@ -1,23 +1,16 @@
-package com.turntable.turntable.entity;
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+package com.turntable.turntable.bean;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 排行榜实体类
+ * 排行榜Javabean
  * @Author:Wukh
  */
-@TableName(value = "ranking")
-public class Ranking {
+public class RankingBean {
 
     /** id 自增*/
-    @TableId(type = IdType.AUTO)
     private Long id;
 
     /** 创建时间 */
@@ -30,11 +23,9 @@ public class Ranking {
     private Long titleId;
 
     /** 子选项名称 */
-    @TableField(exist = false)
     private String awardsName;
 
     /** 转盘标题 */
-    @TableField(exist = false)
     private String option;
 
     /** 排行榜结果集 key awardsName  value count */

@@ -1,6 +1,7 @@
 package com.turntable.turntable.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.turntable.turntable.bean.TurntableBean;
 import com.turntable.turntable.entity.Turntable;
 
 import java.util.List;
@@ -35,4 +36,9 @@ public interface TurntableService extends IService<Turntable> {
      */
     void delete(Long id);
 
+    /**
+     * 修改转盘
+     * @param turntableBean
+     */
+    void edit(TurntableBean turntableBean);
 }
