@@ -4,12 +4,9 @@ import com.turntable.turntable.entity.Awards;
 import com.turntable.turntable.service.AwardsService;
 import entity.Result;
 import entity.StatusCode;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 
@@ -21,12 +18,12 @@ import java.util.List;
 @CrossOrigin
 public class AwardsController {
 
-    @Autowired
+    @Resource(name = "awardsServiceImpl")
     private AwardsService awardsService;
 
     /**
      * 加载数据列表
-     * @return
+     * @return 响应结果集
      */
     @GetMapping(value = "/list")
     public Result<List<Awards>> list(){
@@ -35,7 +32,7 @@ public class AwardsController {
     }
 
     @GetMapping(value = "/findByTurntableId/{turntableId}")
-    public Result<List<Awards>> findByTurntableId(Long turntableId){
+    public Result<List<Awards>> findByTurntableId(@PathVariable(value = "turntableId") Long turntableId){
         List<Awards> list = awardsService.findByTurntableId(turntableId);
         return new Result<>(true, StatusCode.OK, "条件查询成功", list);
     }

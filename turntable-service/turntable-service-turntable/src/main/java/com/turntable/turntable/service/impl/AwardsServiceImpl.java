@@ -4,10 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.turntable.turntable.dao.AwardsMapper;
 import com.turntable.turntable.entity.Awards;
 import com.turntable.turntable.service.AwardsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 
@@ -18,7 +18,7 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class AwardsServiceImpl extends ServiceImpl<AwardsMapper, Awards> implements AwardsService {
 
-    @Autowired
+    @Resource
     private AwardsMapper awardsMapper;
 
     @Override
@@ -35,6 +35,4 @@ public class AwardsServiceImpl extends ServiceImpl<AwardsMapper, Awards> impleme
     public Integer add(Awards awards) {
         return null;
     }
-
-
 }

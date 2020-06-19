@@ -6,7 +6,6 @@ import com.turntable.turntable.entity.Ranking;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -46,7 +45,7 @@ public interface RankingMapper extends BaseMapper<Ranking> {
      * @param today 参数
      * @return
      */
-    @Select(" select count(*), t.id , t.title 'option' from ranking r\n" +
+    @Select(" select count(*), t.id titleId , t.title 'option' from ranking r\n" +
             " left join awards a on r.awards_id = a.id\n" +
             " left join turntable_awards ta on ta.awards_id = a.id\n" +
             " left join turntable t on t.id = ta.turntable_id\n" +

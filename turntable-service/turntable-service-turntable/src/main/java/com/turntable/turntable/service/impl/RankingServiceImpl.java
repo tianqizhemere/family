@@ -7,10 +7,10 @@ import com.turntable.turntable.entity.Ranking;
 import com.turntable.turntable.service.RankingService;
 import entity.BeanUtils;
 import entity.DateUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -25,14 +25,14 @@ import java.util.Map;
 @Transactional(rollbackFor = Exception.class)
 public class RankingServiceImpl extends ServiceImpl<RankingMapper, Ranking> implements RankingService {
 
-    @Autowired
+    @Resource
     private RankingMapper rankingMapper;
 
     @Override
     public Integer add(RankingBean rankingBean) {
         Ranking ranking = new Ranking();
-        BeanUtils.copyProperties(ranking, rankingBean);
-        if (ranking.getTitleId() != null && ranking.getTitleId() != 0) {
+        BeanUtils.copyProperties(rankingBean, ranking);
+        if (ranking.getAwardsId() != null) {
             ranking.setCreateTime(new Date());
             ranking.setModifyTime(new Date());
             return rankingMapper.insert(ranking);

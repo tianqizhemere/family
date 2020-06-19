@@ -27,7 +27,11 @@ public class Ranking {
     private Date modifyTime;
 
     /** 转盘id*/
+    @TableField(exist = false)
     private Long titleId;
+
+    /** 转盘子选择id*/
+    private Long awardsId;
 
     /** 子选项名称 */
     @TableField(exist = false)
@@ -37,7 +41,7 @@ public class Ranking {
     @TableField(exist = false)
     private String option;
 
-    /** 排行榜结果集 key awardsName  value count */
+    /** 排行榜结果集 key awardsName  key count */
     private List<Map<String, Object>> list;
 
     public List<Map<String, Object>> getList() {
@@ -78,6 +82,14 @@ public class Ranking {
 
     public void setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
+    }
+
+    public Long getAwardsId() {
+        return awardsId;
+    }
+
+    public void setAwardsId(Long awardsId) {
+        this.awardsId = awardsId;
     }
 
     public Long getTitleId() {

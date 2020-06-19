@@ -5,9 +5,9 @@ import com.turntable.turntable.entity.Turntable;
 import com.turntable.turntable.service.TurntableService;
 import entity.Result;
 import entity.StatusCode;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,13 +20,13 @@ import java.util.List;
 @CrossOrigin
 public class TurntableController {
 
-    @Autowired
+    @Resource(name = "turntableServiceImpl")
     private TurntableService turntableService;
 
 
     /**
      * 加载数据列表
-     * @return
+     * @return 响应结果集
      */
     @GetMapping(value = "/list")
     public Result<Turntable> list() {
@@ -36,7 +36,7 @@ public class TurntableController {
 
     /**
      * 加载树状图数据列表
-     * @return
+     * @return 响应结果集
      */
     @GetMapping(value = "/treeList")
     public  Result<Turntable> treeList() {
@@ -47,10 +47,10 @@ public class TurntableController {
     /**
      * 添加转盘
      * @param turntable 添加属性
-     * @return
+     * @return 响应结果集
      */
     @PostMapping(value = "/add")
-    public Result addTurntable(@RequestBody Turntable turntable) {
+    public Result<Object> addTurntable(@RequestBody Turntable turntable) {
         turntableService.add(turntable);
         return new Result<>(true, StatusCode.OK, "添加数据成功");
     }
@@ -59,10 +59,10 @@ public class TurntableController {
     /**
      * 删除转盘
      * @param id 转盘主键id
-     * @return
+     * @return 响应结果集
      */
     @PostMapping(value = "/delete")
-    public Result delete(@RequestParam("id") Long id){
+    public Result<Object> delete(@RequestParam("id") Long id){
         turntableService.delete(id);
         return new Result<>(true, StatusCode.OK, "数据删除成功");
     }
@@ -70,10 +70,10 @@ public class TurntableController {
     /**
      * 修改转盘
      * @param turntableBean 转盘Javabean
-     * @return
+     * @return 响应结果集
      */
     @PostMapping(value = "/edit")
-    public Result edit(@RequestBody TurntableBean turntableBean) {
+    public Result<Object> edit(@RequestBody TurntableBean turntableBean) {
         turntableService.edit(turntableBean);
         return new Result<>(true, StatusCode.OK, "修改数据成功");
     }

@@ -19,8 +19,8 @@ public class RankingBean {
     /** 修改时间 */
     private Date modifyTime;
 
-    /** 转盘id*/
-    private Long titleId;
+    /** 转盘子选项id*/
+    private Long awardsId;
 
     /** 子选项名称 */
     private String awardsName;
@@ -71,12 +71,12 @@ public class RankingBean {
         this.modifyTime = modifyTime;
     }
 
-    public Long getTitleId() {
-        return titleId;
+    public Long getAwardsId() {
+        return awardsId;
     }
 
-    public void setTitleId(Long titleId) {
-        this.titleId = titleId;
+    public void setAwardsId(Long awardsId) {
+        this.awardsId = awardsId;
     }
 
     public String getAwardsName() {

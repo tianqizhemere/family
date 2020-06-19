@@ -11,10 +11,10 @@ import com.turntable.turntable.entity.Turntable;
 import com.turntable.turntable.entity.TurntableAwards;
 import com.turntable.turntable.service.TurntableService;
 import entity.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -28,13 +28,13 @@ import java.util.Map;
 @Transactional(rollbackFor = Exception.class)
 public class TurntableServiceImpl extends ServiceImpl<TurntableMapper, Turntable> implements TurntableService{
 
-    @Autowired
+    @Resource
     private TurntableMapper turntableMapper;
 
-    @Autowired
+    @Resource
     private AwardsMapper awardsMapper;
 
-    @Autowired
+    @Resource
     private TurntableAwardsMapper turntableAwardsMapper;
 
 
