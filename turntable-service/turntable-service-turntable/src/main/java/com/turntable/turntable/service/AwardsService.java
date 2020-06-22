@@ -7,14 +7,14 @@ import com.turntable.turntable.entity.Turntable;
 import java.util.List;
 
 /**
- * 转盘业务层接口
+ * 子选项服务层接口
  * @Author:Wukh
  */
 public interface AwardsService extends IService<Awards> {
 
     /**
      * 加载数据列表
-     * @return
+     * @return 查询所有
      */
     List<Awards> findList();
 
@@ -27,7 +27,7 @@ public interface AwardsService extends IService<Awards> {
 
     /**
      * 添加子选择
-     * @param awards
+     * @param awards 子选项
      * @return
      */
     Integer add(Awards awards);

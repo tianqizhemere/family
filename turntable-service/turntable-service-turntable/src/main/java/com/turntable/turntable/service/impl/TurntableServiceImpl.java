@@ -1,9 +1,9 @@
 package com.turntable.turntable.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.turntable.turntable.bean.TurntableBean;
 import com.turntable.turntable.dao.AwardsMapper;
+import com.turntable.turntable.dao.RankingMapper;
 import com.turntable.turntable.dao.TurntableAwardsMapper;
 import com.turntable.turntable.dao.TurntableMapper;
 import com.turntable.turntable.entity.Awards;
@@ -36,6 +36,9 @@ public class TurntableServiceImpl extends ServiceImpl<TurntableMapper, Turntable
 
     @Resource
     private TurntableAwardsMapper turntableAwardsMapper;
+
+    @Resource
+    private RankingMapper rankingMapper;
 
 
     @Override
@@ -70,6 +73,10 @@ public class TurntableServiceImpl extends ServiceImpl<TurntableMapper, Turntable
         List<TurntableAwards> list = turntableAwardsMapper.findByTurntableId(id);
         if (list != null) {
             for (TurntableAwards turntableAwards : list) {
+                Long awardsId = turntableAwards.getAwardsId();
+                Map<String, Object> awardsMap = new HashMap<>();
+                awardsMap.put("awards_id", awardsId);
+                rankingMapper.deleteByMap(awardsMap);
                 awardsMapper.deleteById(turntableAwards.getAwardsId());
             }
         }
@@ -84,18 +91,24 @@ public class TurntableServiceImpl extends ServiceImpl<TurntableMapper, Turntable
         Turntable turntable = new Turntable();
         BeanUtils.copyProperties(turntableBean, turntable);
         turntable.setModifyTime(new Date());
+        turntableMapper.updateById(turntable);
+        turntableAwardsMapper.deleteByTurntableId(turntable.getId());
         for (Awards award : turntable.getAwards()) {
             award.setModifyTime(new Date());
             if (award.getId() == null) {
                 award.setCreateTime(new Date());
                 awardsMapper.insert(award);
-                TurntableAwards turntableAwards = new TurntableAwards();
-                turntableAwards.setAwardsId(award.getId());
-                turntableAwards.setTurntableId(turntable.getId());
-                turntableAwardsMapper.insert(turntableAwards);
             }
+            TurntableAwards turntableAwards = new TurntableAwards();
+            turntableAwards.setAwardsId(award.getId());
+            turntableAwards.setTurntableId(turntable.getId());
+            turntableAwardsMapper.insert(turntableAwards);
             awardsMapper.updateById(award);
         }
-        turntableMapper.updateById(turntable);
+    }
+
+    @Override
+    public void logicDelete(Long id) {
+
     }
 }

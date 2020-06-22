@@ -14,13 +14,13 @@ public interface TurntableService extends IService<Turntable> {
 
     /**
      * 加载数据列表
-     * @return
+     * @return 查询所有
      */
     List<Turntable> findList();
 
     /**
      * 加载树状图数据列表
-     * @return
+     * @return 树形数据集
      */
     List<Turntable> findTreeList();
 
@@ -38,7 +38,13 @@ public interface TurntableService extends IService<Turntable> {
 
     /**
      * 修改转盘
-     * @param turntableBean
+     * @param turntableBean 转盘Javabean
      */
     void edit(TurntableBean turntableBean);
+
+    /**
+     * 执行逻辑删除
+     * @param id 转盘id
+     */
+    void logicDelete(Long id);
 }

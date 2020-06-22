@@ -2,6 +2,7 @@ package com.turntable.turntable.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.turntable.turntable.entity.TurntableAwards;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 /**
  * 中间关联表持久层
+ * @Author:Wukh
  */
 public interface TurntableAwardsMapper extends BaseMapper<TurntableAwards> {
 
@@ -19,4 +21,11 @@ public interface TurntableAwardsMapper extends BaseMapper<TurntableAwards> {
      */
     @Select("select * from turntable_awards where turntable_id = #{id}")
     List<TurntableAwards> findByTurntableId(@Param("id") Long id);
+
+    /**
+     * 通过转盘ID删除转盘与子项关联关系
+     * @param id 转盘id
+     */
+    @Delete("delete from turntable_awards where turntable_id = #{id}")
+    void deleteByTurntableId(@Param("id") Long id);
 }

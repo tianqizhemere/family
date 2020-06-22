@@ -57,14 +57,25 @@ public class TurntableController {
 
 
     /**
-     * 删除转盘
+     * 物理删除转盘
      * @param id 转盘主键id
      * @return 响应结果集
      */
     @PostMapping(value = "/delete")
     public Result<Object> delete(@RequestParam("id") Long id){
         turntableService.delete(id);
-        return new Result<>(true, StatusCode.OK, "数据删除成功");
+        return new Result<>(true, StatusCode.OK, "物理删除数据成功");
+    }
+
+    /**
+     * 逻辑删除
+     * @param id 转盘id
+     * @return 响应结果集
+     */
+    @PostMapping(value = "/logicDelete")
+    public Result<Object> logicDelete(@RequestParam("id") Long id){
+        turntableService.logicDelete(id);
+        return new Result<>(true, StatusCode.OK, "删除数据成功");
     }
 
     /**
