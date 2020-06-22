@@ -19,11 +19,11 @@ public class Result<T> {
     /** 返回数据 */
     private T data;
 
-    public Result(boolean flag, Integer code, String message, Object data) {
+    public Result(boolean flag, Integer code, String message, T data) {
         this.flag = flag;
         this.code = code;
         this.message = message;
-        this.data = (T) data;
+        this.data = data;
     }
 
     public Result(boolean flag, Integer code, String message) {
