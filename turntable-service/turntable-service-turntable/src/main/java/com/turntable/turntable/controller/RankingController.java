@@ -51,7 +51,7 @@ public class RankingController {
      * @return 响应结果集
      */
     @PostMapping(value = "/add")
-    public Result add(@RequestBody RankingBean rankingBean){
+    public Result<Object> add(@RequestBody RankingBean rankingBean){
         rankingService.add(rankingBean);
         return new Result<>(true, StatusCode.OK, "数据插入成功");
     }

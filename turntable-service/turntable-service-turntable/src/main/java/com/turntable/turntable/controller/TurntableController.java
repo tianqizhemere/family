@@ -5,6 +5,9 @@ import com.turntable.turntable.entity.Turntable;
 import com.turntable.turntable.service.TurntableService;
 import entity.Result;
 import entity.StatusCode;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -18,6 +21,7 @@ import java.util.List;
 @RestController("turntableController")
 @RequestMapping("/turntable")
 @CrossOrigin
+@Api(value = "转盘类控制器", tags = "用户类控制器")
 public class TurntableController {
 
     @Resource(name = "turntableServiceImpl")
@@ -29,7 +33,8 @@ public class TurntableController {
      * @return 响应结果集
      */
     @GetMapping(value = "/list")
-    public Result<Turntable> list() {
+    @ApiOperation(value = "获取所有转盘列表", notes = "获取所有转盘列表")
+    public Result<List<Turntable>> list() {
         List<Turntable> list = turntableService.findList();
         return new Result<>(true, StatusCode.OK, "查询数据成功", list);
     }
@@ -39,7 +44,8 @@ public class TurntableController {
      * @return 响应结果集
      */
     @GetMapping(value = "/treeList")
-    public  Result<Turntable> treeList() {
+    @ApiOperation(value = "获取树状图数据列表", notes = "获取树状图数据列表")
+    public  Result<List<Turntable>> treeList() {
         List<Turntable> list = turntableService.findTreeList();
         return new Result<>(true, StatusCode.OK, "获取树状图数据成功", list);
     }
@@ -50,6 +56,7 @@ public class TurntableController {
      * @return 响应结果集
      */
     @PostMapping(value = "/add")
+    @ApiOperation(value = "添加转盘", notes = "添加转盘")
     public Result<Object> addTurntable(@RequestBody Turntable turntable) {
         turntableService.add(turntable);
         return new Result<>(true, StatusCode.OK, "添加数据成功");
@@ -62,6 +69,8 @@ public class TurntableController {
      * @return 响应结果集
      */
     @PostMapping(value = "/delete")
+    @ApiOperation(value = "物理删除转盘信息", notes = "物理删除转盘信息")
+    @ApiParam(name = "id", value = "转盘id", required = true)
     public Result<Object> delete(@RequestParam("id") Long id){
         turntableService.delete(id);
         return new Result<>(true, StatusCode.OK, "物理删除数据成功");
@@ -73,6 +82,8 @@ public class TurntableController {
      * @return 响应结果集
      */
     @PostMapping(value = "/logicDelete")
+    @ApiOperation(value = "逻辑删除转盘信息", notes = "逻辑删除转盘信息")
+    @ApiParam(name = "id", value = "转盘id", required = true)
     public Result<Object> logicDelete(@RequestParam("id") Long id){
         turntableService.logicDelete(id);
         return new Result<>(true, StatusCode.OK, "删除数据成功");
