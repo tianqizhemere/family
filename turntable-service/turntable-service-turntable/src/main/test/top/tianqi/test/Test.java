@@ -28,7 +28,7 @@ public class Test {
         config.setAlgorithm("PBEWithMD5AndDES");
         config.setPassword("TianQi");
         standardPBEStringEncryptor.setConfig(config);
-        String encryptedText = "EpKRXsjS9o0vQLX+Foq2Lg==";   //加密后的密码
+        String encryptedText = "";   //加密后的密码
         String plainText = standardPBEStringEncryptor.decrypt(encryptedText);
         System.out.println(plainText);
     }

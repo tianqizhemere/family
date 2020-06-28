@@ -17,11 +17,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-       <!-- &lt;!&ndash;eureka-client&ndash;&gt;
+       <!-- eureka客户端
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>-->
+        </dependency>
+        -->
         <!--openfeign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -33,7 +34,7 @@
             <artifactId>springfox-swagger2</artifactId>
         </dependency>
 
-        <!-- 这里使用 swagger-bootstrap-ui 替代了原有丑陋的ui，拯救处女座~ -->
+        <!--swagger-bootstrap-ui-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>swagger-bootstrap-ui</artifactId>
