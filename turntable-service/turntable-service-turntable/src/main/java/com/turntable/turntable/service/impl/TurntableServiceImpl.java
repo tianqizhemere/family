@@ -10,7 +10,7 @@ import com.turntable.turntable.entity.Awards;
 import com.turntable.turntable.entity.Turntable;
 import com.turntable.turntable.entity.TurntableAwards;
 import com.turntable.turntable.service.TurntableService;
-import entity.BeanUtils;
+import utils.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -5,13 +5,12 @@ import com.turntable.turntable.bean.RankingBean;
 import com.turntable.turntable.dao.RankingMapper;
 import com.turntable.turntable.entity.Ranking;
 import com.turntable.turntable.service.RankingService;
-import entity.BeanUtils;
-import entity.DateUtils;
+import utils.BeanUtils;
+import utils.DateUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -59,12 +58,12 @@ public class RankingServiceImpl extends ServiceImpl<RankingMapper, Ranking> impl
 
     @Override
     public List<Ranking> findByDay() {
-        Date today = DateUtils.getToday();
-        String day = new SimpleDateFormat("yyyy-MM-dd").format(today);
-        List<Ranking> list = rankingMapper.findByToDay(day);
+        Date beginTime = DateUtils.getDayBegin();
+        Date endTime = DateUtils.getDayEnd();
+        List<Ranking> list = rankingMapper.findByToDay(beginTime, endTime);
         if (list != null && list.size() != 0) {
             for (Ranking ranking : list) {
-                List<Map<String, Object>> awards = rankingMapper.findByDay(ranking.getTitleId(), day);
+                List<Map<String, Object>> awards = rankingMapper.findByDay(ranking.getTitleId(), beginTime, endTime);
                 ranking.setList(awards);
             }
         }

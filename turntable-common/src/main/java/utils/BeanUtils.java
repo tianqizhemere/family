@@ -1,4 +1,4 @@
-package entity;
+package utils;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;

@@ -1,4 +1,4 @@
-package entity;
+package utils;
 
 /**
  * 返回码

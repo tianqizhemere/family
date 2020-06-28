@@ -1,11 +1,15 @@
-package entity;
+package utils;
 
-/****
- * @Author:Wukh
- * @Description:返回实体Bean
+import java.io.Serializable;
+
+/**
+ * @Author Wukh
+ * @Description 返回结果实体类
  * @Date 2020/2/22
- *****/
-public class Result<T> {
+ */
+public class Result<T> implements Serializable {
+
+    private static final long serialVersionUID = 4671489153320147084L;
 
     /** 是否成功 */
     private boolean flag;

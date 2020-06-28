@@ -2,8 +2,8 @@ package com.turntable.turntable.controller;
 
 import com.turntable.turntable.entity.Awards;
 import com.turntable.turntable.service.AwardsService;
-import entity.Result;
-import entity.StatusCode;
+import utils.Result;
+import utils.StatusCode;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

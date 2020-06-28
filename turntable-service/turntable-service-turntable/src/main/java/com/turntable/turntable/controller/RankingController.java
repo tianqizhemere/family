@@ -3,11 +3,12 @@ package com.turntable.turntable.controller;
 import com.turntable.turntable.bean.RankingBean;
 import com.turntable.turntable.entity.Ranking;
 import com.turntable.turntable.service.RankingService;
-import entity.Result;
-import entity.StatusCode;
+import utils.Result;
+import utils.StatusCode;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -51,7 +52,7 @@ public class RankingController {
      * @return 响应结果集
      */
     @PostMapping(value = "/add")
-    public Result<Object> add(@RequestBody RankingBean rankingBean){
+    public Result<Object> add(@Valid @RequestBody RankingBean rankingBean){
         rankingService.add(rankingBean);
         return new Result<>(true, StatusCode.OK, "数据插入成功");
     }
