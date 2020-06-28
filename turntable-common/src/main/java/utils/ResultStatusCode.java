@@ -5,14 +5,14 @@ package utils;
  * @Date: 2020/6/28 18:00
  */
 public enum ResultStatusCode {
-    Success("0", "Success"),
-    UserNotExist("1", "User not exist"),
+    Success("0", "操作成功"),
+    UserNotExist("1", "用户名不存在"),
     InValidParameter("2", "Invalid parameter"),
     DataFormatException("4", "数据格式不正确"),
-    DataNotExistException("5", "DataNotExistException"),
-    TimeFormatException("6", "TimeFormat Exception"),
+    DataNotExistException("5", "数据不存在"),
+    TimeFormatException("6", "时间格式不正确"),
     PictureFormatException("7", "PictureFormat Exception"),
-    IllegalArgumentException("8", "数据格式不正确"),
+    IllegalArgumentException("8", "不合法的参数"),
     TokenInvalidOrOverdueException("9", "Token invalid or overdue exception"),
     AuthorizationCodeError("10", "authorization code error"),
     WrongSignatureException("11", "Wrong Signature Exception"),
