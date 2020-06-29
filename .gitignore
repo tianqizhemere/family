@@ -1,9 +1,9 @@
 # Project exclude paths
-/turntable-common/target/
-/turntable-common-db/target/
-/turntable-eureka/target/
-/turntable-service/turntable-service-turntable/target/
-/turntable-service-api/turntable-service-turntable-api/target/
+/family-common/target/
+/family-common-db/target/
+/family-eureka/target/
+/family-service/turntable-service-turntable/target/
+/family-service-api/turntable-service-turntable-api/target/
 
 # .gitignore for maven
 target/

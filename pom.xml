@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.tianqi</groupId>
-    <artifactId>turntable</artifactId>
+    <artifactId>family</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>turntable-common-db</module>
-        <module>turntable-common</module>
-        <module>turntable-eureka</module>
-        <module>turntable-service-api</module>
-        <module>turntable-service</module>
+        <module>family-common-db</module>
+        <module>family-common</module>
+        <module>family-eureka</module>
+        <module>family-service-api</module>
+        <module>family-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -36,17 +36,37 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- swagger-bootstrap-ui-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
                 <version>2.9.2</version>
             </dependency>
-
-            <!-- 这里使用 swagger-bootstrap-ui 替代了原有丑陋的ui，拯救处女座~ -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>swagger-bootstrap-ui</artifactId>
                 <version>1.9.0</version>
+            </dependency>
+
+            <!-- mybatisPlus 核心库 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.1.0</version>
+            </dependency>
+
+            <!-- 数据库加密 -->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>2.0.0</version>
+            </dependency>
+
+            <!-- 引入阿里数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>1.1.6</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
