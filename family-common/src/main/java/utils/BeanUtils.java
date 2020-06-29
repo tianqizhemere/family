@@ -18,7 +18,7 @@ public class BeanUtils {
 
     /**
      * @Description <p> 拷贝非空对象属性值 </P>
-     * @param source 源对象
+     * @param source 原始对象
      * @param dest 目标对象
      */
     public static void copyProperties(final Object source, final Object dest) {

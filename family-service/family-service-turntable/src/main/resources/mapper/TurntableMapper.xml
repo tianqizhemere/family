@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.turntable.turntable.dao.TurntableMapper">
+<mapper namespace="com.family.turntable.dao.TurntableMapper">
 
-    <resultMap type="com.turntable.turntable.entity.Turntable" id="awardsModel">
+    <resultMap type="com.family.turntable.entity.Turntable" id="awardsModel">
         <id column="id" property="id"/>
         <result column="title" property="title"/>
         <collection property="awards" select="getAwards" column="id">
@@ -14,7 +14,7 @@
         select id,title as 'option' from turntable
     </select>
 
-    <select id="getAwards" resultType="com.turntable.turntable.entity.Awards">
+    <select id="getAwards" resultType="com.family.turntable.entity.Awards">
         select color,a.id,name FROM  awards a
         left join turntable_awards ta on ta.awards_id = a.id
         where ta.turntable_id=#{id}

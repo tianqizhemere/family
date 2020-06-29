@@ -1,7 +1,5 @@
 server:
   port: 18081
-  error:
-    path: /custom/error
 spring:
   profiles:
     active: test
