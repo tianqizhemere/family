@@ -13,7 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 /**
  * swagger配置类
- * @Author:Wukh
+ * @Author Wukh
  */
 @Configuration
 public class SwaggerConfig {
@@ -30,7 +30,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("viboot-swagger2")	//标题
+                .title("family")	//标题
                 .description("Restful-API-Doc")	//描述
                 .termsOfServiceUrl("https://www.tianqizhemere.top") //
                 .contact(new Contact("天气这么热", "https://www.tianqizhemere.top", "incluse6715@163.com")) // 三个参数依次是姓名，个人网站，邮箱

@@ -8,13 +8,14 @@ import java.util.*;
 /**
  * 日期操作工具类
  * @Author Wukh
+ * @Date 2020/06/28
  */
 public class DateUtils {
 
-    /** 例如:2018-12-28 */
+    /** 例如:2020-06-28 */
     public static final String DATE = "yyyy-MM-dd";
 
-    /** 例如:2018-12-28 10:00:00 */
+    /** 例如:2020-06-28 10:00:00 */
     public static final String DATE_TIME = "yyyy-MM-dd HH:mm:ss";
 
     /** 例如:10:00:00 */
@@ -23,7 +24,7 @@ public class DateUtils {
     /** 例如:10:00 */
     public static final String TIME_WITHOUT_SECOND = "HH:mm";
 
-    /** 例如:2018-12-28 10:00 */
+    /** 例如:2020-06-28 10:00 */
     public static final String DATE_TIME_WITHOUT_SECONDS = "yyyy-MM-dd HH:mm";
 
 
@@ -246,25 +247,24 @@ public class DateUtils {
 
     /**
      * 两个日期相减得到的天数
-     * @param beginDate
-     * @param endDate
-     * @return
+     * @param beginDate 开始时间
+     * @param endDate 结束时间
+     * @return 相差天数
      */
     public static int getDiffDays(Date beginDate, Date endDate) {
         if(beginDate==null||endDate==null) {
             throw new IllegalArgumentException("getDiffDays param is null!");
         }
         long diff=(endDate.getTime()-beginDate.getTime())/(1000*60*60*24);
-        int days = new Long(diff).intValue();
-        return days;
+        return new Long(diff).intValue();
     }
 
 
     /**
      * 两个日期相减得到的毫秒数
-     * @param beginDate
-     * @param endDate
-     * @return
+     * @param beginDate 开始时间
+     * @param endDate 结束时间
+     * @return 相差毫秒数
      */
     public static long dateDiff(Date beginDate, Date endDate) {
         long date1ms=beginDate.getTime();
@@ -279,12 +279,11 @@ public class DateUtils {
      * @return 字符串时间
      */
     public static String dateFormat(Date date) {
-        if (date == null) {
-            return  null;
+        if (date != null) {
+            SimpleDateFormat formatter = new SimpleDateFormat(DATE_TIME);
+            return formatter.format(date);
         }
-        SimpleDateFormat formatter = new SimpleDateFormat(DATE_TIME);
-        String dateString = formatter.format(date);
-        return dateString;
+        return  null;
     }
 
     /**
@@ -298,8 +297,7 @@ public class DateUtils {
             return null;
         }
         SimpleDateFormat formatter = new SimpleDateFormat(DATE_TIME);
-        Date date = formatter.parse(str);
-        return date;
+        return formatter.parse(str);
     }
 
     public static void main(String[] args) {

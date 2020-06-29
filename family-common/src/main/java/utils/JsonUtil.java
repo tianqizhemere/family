@@ -13,8 +13,8 @@ import org.springframework.util.StringUtils;
 
 /**
  * JsonUtil工具类
- * @Author: wukh
- * @Date: 2020/6/28 17:19
+ * @Author wukh
+ * @Date 2020/6/28 17:19
  */
 public class JsonUtil {
 

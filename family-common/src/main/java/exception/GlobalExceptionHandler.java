@@ -17,8 +17,8 @@ import java.util.zip.DataFormatException;
 /**
  * 全局异常处理
  *
- * @Author: wukh
- * @Date: 2020/6/28 16:30
+ * @Author wukh
+ * @Date 2020/6/28 16:30
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
