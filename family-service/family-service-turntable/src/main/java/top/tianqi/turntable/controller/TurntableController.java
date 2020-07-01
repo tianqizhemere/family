@@ -5,7 +5,6 @@ import top.family.turntable.entity.Turntable;
 import top.tianqi.turntable.service.TurntableService;
 import utils.Result;
 import utils.StatusCode;
-import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -63,7 +62,6 @@ public class TurntableController {
      * @return 响应结果集
      */
     @PostMapping(value = "/delete")
-    @ApiParam(name = "id", value = "转盘id", required = true)
     public Result<Object> delete(@RequestParam("id") Long id){
         turntableService.delete(id);
         return new Result<>(true, StatusCode.OK, "物理删除数据成功");

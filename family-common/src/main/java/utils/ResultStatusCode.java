@@ -3,12 +3,13 @@ package utils;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
- * @Author wukh
+ * 响应码枚举
+ * @Author wkh
  * @Date 2020/6/28 18:00
  */
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ResultStatusCode {
-    Success("0", "success"),
+    Success("200", "success"),
     UserNotExist("1", "用户名不存在"),
     InValidParameter("2", "Invalid parameter"),
     DataFormatException("4", "数据格式不正确"),
@@ -20,6 +21,7 @@ public enum ResultStatusCode {
     AuthorizationCodeError("10", "authorization code error"),
     WrongSignatureException("11", "Wrong Signature Exception"),
     SystemException("500", "系统错误"),
+    BAD_REQUEST("400", "BAD_REQUEST"),
     MissingServletRequestParameter("400", "请求参数不全"),
     TypeMismatchException("401", "请求参数类型不正确"),
     RequestMethodNotAllowed("405", "http请求的方法不正确"),

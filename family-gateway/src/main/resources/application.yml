@@ -1,8 +1,13 @@
+server:
+  port: 8080
 spring:
   application:
     name: family-gaetway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true #启用路由访问
       routes:
         # 路由标识
         - id: route_turntable
@@ -16,8 +21,22 @@ spring:
           filters:
             # 前缀， 在当前路径匹配中表示去掉第一个前缀 /route_turntable
             - StripPrefix=1
-server:
-  port: 8081
+            # 熔断配置
+            - name: Hystrix
+              args:
+                name: hystrix1
+                fallbackUri: forward:/fallback
 
-logging:
-  config: classpath:logback-spring.xml
+# 默认熔断超时时间30s
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    hystrix1:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
