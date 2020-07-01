@@ -16,6 +16,8 @@ spring:
           filters:
             # 前缀， 在当前路径匹配中表示去掉第一个前缀 /route_turntable
             - StripPrefix=1
-
 server:
   port: 8081
+
+logging:
+  config: classpath:logback-spring.xml
