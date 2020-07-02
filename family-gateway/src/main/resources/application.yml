@@ -1,31 +1,10 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   application:
     name: family-gaetway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true #启用路由访问
-      routes:
-        # 路由标识
-        - id: route_turntable
-          # 在服务注册中心找服务名为 data-turntable的服务
-          # uri: lb://turntable
-          # 目标服务地址
-          uri: http://127.0.0.1:18081
-          # 路由条件
-          predicates:
-            - Path=/route_turntable/**
-          filters:
-            # 前缀， 在当前路径匹配中表示去掉第一个前缀 /route_turntable
-            - StripPrefix=1
-            # 熔断配置
-            - name: Hystrix
-              args:
-                name: hystrix1
-                fallbackUri: forward:/fallback
+  profiles:
+    active: pro
 
 # 默认熔断超时时间30s
 hystrix:

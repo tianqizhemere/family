@@ -13,6 +13,11 @@ import utils.ResultStatusCode;
  */
 @RestController
 public class DefaultHystrixController {
+
+    /**
+     * 触发熔断器
+     * @return 响应请求体
+     */
     @RequestMapping("/fallback")
     public Result<Object> fallback(){
         LogUtil.error("触发熔断......");

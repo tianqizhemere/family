@@ -5,7 +5,3 @@ spring:
     username: ENC(Gri54jrP8xEGxDnSCI90Ng==)
     password: ENC(a1ZwjorWwGZqg+35Hpgqb2l3e6XiO3hg)
 
-feign:
-  hystrix:
-    enabled: true
-
