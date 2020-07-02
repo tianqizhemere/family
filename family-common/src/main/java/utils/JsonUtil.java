@@ -31,7 +31,7 @@ public class JsonUtil {
      * @param o 目标对象
      * @return json
      */
-    public static String object2Json(Object o) {
+    public static String toJsonString(Object o) {
         if (o == null)
             return null;
 
@@ -46,17 +46,17 @@ public class JsonUtil {
     }
 
     /**
-     * 集合对象转json
+     * 集合对象转json集合
      * @param objects 多个同一类型对象
      * @return json集合
      */
-    public static <T> List<String> listObject2ListJson(List<T> objects) {
+    public static <T> List<String> listToListJson(List<T> objects) {
         if (objects == null)
             return null;
 
         List<String> lists = new ArrayList<String>();
         for (T t : objects) {
-            lists.add(JsonUtil.object2Json(t));
+            lists.add(JsonUtil.toJsonString(t));
         }
 
         return lists;
@@ -68,13 +68,13 @@ public class JsonUtil {
      * @param c 转换类型
      * @return
      */
-    public static <T> List<T> listJson2ListObject(List<String> jsons, Class<T> c) {
+    public static <T> List<T> listJsonToListObject(List<String> jsons, Class<T> c) {
         if (jsons == null)
             return null;
 
         List<T> ts = new ArrayList<T>();
         for (String j : jsons) {
-            ts.add(JsonUtil.json2Object(j, c));
+            ts.add(JsonUtil.jsonToObject(j, c));
         }
 
         return ts;
@@ -86,7 +86,7 @@ public class JsonUtil {
      * @param c 转换对象
      * @return
      */
-    public static <T> T json2Object(String json, Class<T> c) {
+    public static <T> T jsonToObject(String json, Class<T> c) {
         if (!StringUtils.hasLength(json))
             return null;
 
@@ -106,7 +106,7 @@ public class JsonUtil {
      * @return
      */
     @SuppressWarnings("unchecked")
-    public static <T> T json2Object(String json, TypeReference<T> tr) {
+    public static <T> T jsonToObject(String json, TypeReference<T> tr) {
         if (!StringUtils.hasLength(json))
             return null;
 

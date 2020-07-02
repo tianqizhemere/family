@@ -13,6 +13,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 import top.tianqi.constant.HeaderConstant;
 import utils.IpUtils;
+import utils.JsonUtil;
 import utils.LogUtil;
 
 import java.io.IOException;
@@ -99,7 +100,7 @@ public class CacheServerHttpRequestDecorator extends ServerHttpRequestDecorator 
         logDTO.setRequestMethod(method);
         logDTO.setRequestId(headers.getFirst(HeaderConstant.REQUEST_ID));
         logDTO.setIp(IpUtils.getClientIp(request));
-        LogUtil.info(LogHelper.toJsonString(logDTO));
+        LogUtil.info(JsonUtil.toJsonString(logDTO));
     }
 
 }

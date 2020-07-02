@@ -53,6 +53,6 @@ public class ExceptionUtil {
      *
      */
     public static String resultOf(ResultStatusCode resultStatusCode) {
-        return JsonUtil.object2Json(resultStatusCode);
+        return JsonUtil.toJsonString(resultStatusCode);
     }
 }

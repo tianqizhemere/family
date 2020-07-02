@@ -1,16 +1,14 @@
 package top.tianqi.log;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.reactive.ServerHttpRequest;
-import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import reactor.core.publisher.Mono;
 import top.tianqi.constant.HeaderConstant;
+import utils.JsonUtil;
 import utils.LogUtil;
 
 import java.nio.charset.Charset;
@@ -24,25 +22,9 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class LogHelper {
 
-    private final static ObjectMapper objectMapper = new ObjectMapper();
-
-    /**
-     * Log转JSON
-     * @param dto Log
-     * @return JSON字符串
-     */
-    public static String toJsonString(@NonNull Log dto) {
-        try {
-            return objectMapper.writeValueAsString(dto);
-        } catch (JsonProcessingException e) {
-            LogUtil.error("Log转换JSON异常", e);
-            return null;
-        }
-    }
-
     /**
      * 根据MediaType获取字符集，如果获取不到，则默认返回<tt>UTF_8</tt>
-     * @param mediaType MediaType
+     * @param mediaType 媒体类型
      * @return Charset
      */
     public static Charset getMediaTypeCharset(@Nullable MediaType mediaType) {
@@ -59,7 +41,7 @@ public class LogHelper {
      * @return Mono.empty()
      */
     public static Mono<Void> doRecord(Log dto) {
-        LogUtil.info(toJsonString(dto));
+        LogUtil.info(JsonUtil.toJsonString(dto));
         return Mono.empty();
     }
 
@@ -122,8 +104,8 @@ public class LogHelper {
 
     /**
      * 判断是否是上传文件
-     * @param mediaType MediaType
-     * @return Boolean
+     * @param mediaType 媒体类型
+     * @return Boolean 是否上传文件
      */
     public static boolean isUploadFile(@Nullable MediaType mediaType) {
         if (Objects.isNull(mediaType)) {
@@ -133,6 +115,6 @@ public class LogHelper {
                 || mediaType.equals(MediaType.IMAGE_GIF)
                 || mediaType.equals(MediaType.IMAGE_JPEG)
                 || mediaType.equals(MediaType.IMAGE_PNG)
-                || mediaType.equals(MediaType.MULTIPART_FORM_DATA);
+                || mediaType.equals(MediaType.MULTIPART_MIXED);
     }
 }

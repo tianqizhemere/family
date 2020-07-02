@@ -74,7 +74,7 @@ public class GlobalExceptionHandler {
     public String allExceptionHandler(Exception e){
         // 会记录出错的代码行等具体信息
         log.error("具体错误信息:【"+ ExceptionUtil.getErrorMessage(e)+"】");
-        int count = 0; //只打印15行的错误堆栈
+        int count = 0; // 只打印15行的错误堆栈
         for (StackTraceElement stackTraceElement : e.getStackTrace()) {
             log.error(stackTraceElement.toString());
             if(count++ > 13) break;
