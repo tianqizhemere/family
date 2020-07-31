@@ -23,7 +23,8 @@ import java.util.*;
  * @Date 2020/7/2 11:13
  */
 public class EmailUtils {
-    private static Logger logger = LoggerFactory.getLogger(EmailUtils.class);
+
+    private static final Logger logger = LoggerFactory.getLogger(EmailUtils.class);
 
     /** 登录账户 */
     private static final String account = "";
@@ -208,9 +209,9 @@ public class EmailUtils {
     }
 
     public static void main(String[] args) {
-        sendWithAttach("别名", "主题", "123", "lifengdi@kd.cn?lifengdi@lifengdi.com", "F:/image/000.jpg");
-        sendWithAttachFile("别名", "主题", "123", "lifengdi@kd.cn?lifengdi@lifengdi.com",
-                Arrays.asList(new File("F:/image/000.jpg"), new File("F:/image/001.jpeg")));
-        send("主题", "内容", "lifengdi@kd.cn,lifengdi@lifengdi.com");
+        //sendWithAttach("别名", "主题", "123", "lifengdi@kd.cn?lifengdi@lifengdi.com", "F:/image/000.jpg");
+        //sendWithAttachFile("别名", "主题", "123", "lifengdi@kd.cn?lifengdi@lifengdi.com",
+        //      Arrays.asList(new File("F:/image/000.jpg"), new File("F:/image/001.jpeg")));
+        send("", "", "lifengdi@kd.cn,lifengdi@lifengdi.com");
     }
 }

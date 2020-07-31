@@ -13,7 +13,7 @@ spring:
           uri: http://127.0.0.1:18081
           # 路由条件
           predicates:
-            - Path=/api/turntable-api/**
+            - Path=/api/**
           filters:
             # 前缀， 在当前路径匹配中表示去掉第一个前缀 /route_turntable
             - StripPrefix=1
