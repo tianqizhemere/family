@@ -27,9 +27,46 @@
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
     </properties>
 
-    <dependencies>
+    <!--多环境文件配置-->
+    <profiles>
+        <!--开发环境-->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <!--默认激活-->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+                <file.upload.path>F:</file.upload.path>
+                <!--设置总上传数据大小-->
+                <max.request.size>50MB</max.request.size>
+                <!--单个文件上传数据大小-->
+                <max.file.size>5MB</max.file.size>
+            </properties>
+        </profile>
+        <!--测试环境-->
+        <profile>
+            <id>test</id>
+            <properties>
+                <spring.profiles.active>test</spring.profiles.active>
+                <file.upload.path>/upload</file.upload.path>
+                <max.request.size>100MB</max.request.size>
+                <max.file.size>10MB</max.file.size>
+            </properties>
+        </profile>
+        <!--正式环境-->
+        <profile>
+            <id>pro</id>
+            <properties>
+                <spring.profiles.active>pro</spring.profiles.active>
+                <file.upload.path>/upload</file.upload.path>
+                <max.request.size>100MB</max.request.size>
+                <max.file.size>10MB</max.file.size>
+            </properties>
+        </profile>
+    </profiles>
 
-    </dependencies>
 
     <!-- 声明依赖 -->
     <dependencyManagement>
@@ -69,6 +106,32 @@
                 <version>3.9</version>
             </dependency>
 
+            <!-- poi -->
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-base</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-annotation</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-web</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>1.3.3</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>

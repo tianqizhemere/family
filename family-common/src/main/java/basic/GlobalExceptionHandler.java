@@ -1,4 +1,4 @@
-package exception;
+package basic;
 
 import com.sun.corba.se.impl.io.TypeMismatchException;
 import org.springframework.web.bind.MissingServletRequestParameterException;

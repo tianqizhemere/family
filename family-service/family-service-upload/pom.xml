@@ -3,34 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>family</artifactId>
+        <artifactId>family-service</artifactId>
         <groupId>top.tianqi</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>family-service-api</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>family-service-turntable-api</module>
-        <module>family-service-upload-api</module>
-    </modules>
+    <artifactId>family-service-upload</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>top.tianqi</groupId>
-            <artifactId>family-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
         </dependency>
         <dependency>
             <groupId>top.tianqi</groupId>
-            <artifactId>family-common-db</artifactId>
+            <artifactId>family-service-upload-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 </project>

@@ -1,11 +1,12 @@
 package top.tianqi;
 
-import exception.GlobalExceptionHandler;
+import basic.GlobalExceptionHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.codec.ServerCodecConfigurer;
 
 /**
  * @Author wkh
@@ -19,8 +20,14 @@ public class FamilyGatewayApplication {
         SpringApplication.run(FamilyGatewayApplication.class, args);
     }
 
+    /** 异常处理器 */
     @Bean
     public GlobalExceptionHandler globalExceptionHandler() {
         return new GlobalExceptionHandler();
+    }
+
+    @Bean
+    public ServerCodecConfigurer serverCodecConfigurer() {
+        return ServerCodecConfigurer.create();
     }
 }

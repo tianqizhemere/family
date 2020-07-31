@@ -1,4 +1,4 @@
-package top.tianqi;
+package top.tianqi.turntable;
 
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import org.mybatis.spring.annotation.MapperScan;

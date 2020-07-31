@@ -7,11 +7,11 @@ package utils;
 public class StatusCode {
 
     /** 成功 */
-    public static final int OK = 20000;
+    public static final Integer OK = 200;
 
     /** 失败 */
-    public static final int ERROR = 20001;
+    public static final Integer ERROR = 20001;
 
     /** 远程调用失败 */
-    public static final int REMOTEERROR = 20004;
+    public static final Integer REMOTEERROR = 20004;
 }

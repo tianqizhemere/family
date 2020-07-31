@@ -4,7 +4,13 @@ spring:
   application:
     name: family-gaetway
   profiles:
-    active: pro
+    active: @spring.profiles.active@
+  servlet:
+    multipart:
+      # 设置单个文件大小
+      max-file-size: @max.file.size@
+      # 设置总上传数据大小
+      max-request-size: @max.request.size@
 
 # 默认熔断超时时间30s
 hystrix:
@@ -19,3 +25,4 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 1000
+

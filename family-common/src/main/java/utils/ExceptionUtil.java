@@ -50,7 +50,6 @@ public class ExceptionUtil {
     }
     /**
      * 异常信息-->json
-     *
      */
     public static String resultOf(ResultStatusCode resultStatusCode) {
         return JsonUtil.toJsonString(resultStatusCode);
