@@ -11,6 +11,8 @@
 
     <artifactId>family-common</artifactId>
 
+    <description>服务公共模块</description>
+
     <dependencies>
         <!--web起步依赖-->
         <dependency>
