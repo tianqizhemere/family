@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * 获取Spring容器中的对象
+ * 获取Spring容器对象
  * @Author wkh
  * @Date 2020/8/6 9:30
  */

@@ -14,6 +14,8 @@
     <modules>
         <module>family-service-turntable</module>
         <module>family-service-upload</module>
+        <module>family-service-quartz</module>
+        <module>family-service-queue</module>
     </modules>
 
     <dependencies>

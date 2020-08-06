@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: redis-example
+  redis:
+    host: localhost
+    port: 6379
+    #  默认选择第0个Redis库
+    database: 0
+    password:
+server:
+  port: 18089

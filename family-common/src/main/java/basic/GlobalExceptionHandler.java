@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.zip.DataFormatException;
 
 /**
- * 全局异常处理
+ * 全局异常处理器
  *
  * @Author wukh
  * @Date 2020/6/28 16:30
