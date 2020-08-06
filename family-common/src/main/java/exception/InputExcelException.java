@@ -3,8 +3,8 @@ package exception;
 import java.io.Serializable;
 
 /**
- * 自定义异常
- * <p>导入Excel错误异常</p>
+ * <p>导入Excel异常</p>
+ * 自定义异常类
  * @Author wkh
  * @Date 2020/7/30 14:37
  */

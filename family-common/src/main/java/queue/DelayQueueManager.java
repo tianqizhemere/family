@@ -1,17 +1,21 @@
 package queue;
 
 
+
+import org.springframework.stereotype.Component;
+
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
  * 延时队列管理类
- * <p>添加任务</p>
- * <p>执行任务</p>
+ * <p>1.添加任务</p>
+ * <p>2.执行任务</p>
  * @Author wkh
  * @Date 2020/8/4 13:45
  */
+@Component(value = "delayQueueManger")
 public class DelayQueueManager {
     /** 默认线程数量 */
     private final static int DEFAULT_THREAD_NUM = 5;
@@ -75,8 +79,8 @@ public class DelayQueueManager {
      *
      * @param task 任务类
      */
-    public void put(DelayTask<?> task) {
-       delayQueue.add(task);
+    public boolean put(DelayTask<?> task) {
+       return delayQueue.add(task);
     }
 
     /**
@@ -96,5 +100,15 @@ public class DelayQueueManager {
      */
     public boolean removeTask(DelayTask<?> task) {
         return delayQueue.remove(task);
+    }
+
+    /**
+     * 重新加入计时队列
+     * @param task 任务类
+     * @return
+     */
+    public boolean reAddQueue(DelayTask<?> task) {
+        removeTask(task);
+        return put(task);
     }
 }

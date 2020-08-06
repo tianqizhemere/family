@@ -96,6 +96,10 @@ public class DelayTask<T extends Runnable> implements Delayed {
         return false;
     }
 
+    /**
+     * 重写hashCode，equals方法，保证数据唯一性
+     * @return
+     */
     @Override
     public int hashCode() {
         return id.hashCode();
