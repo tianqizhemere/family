@@ -1,19 +1,18 @@
 package utils;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * JsonUtil工具类
- * @Author wukh
+ * @Author wkh
  * @Date 2020/6/28 17:19
  */
 public class JsonUtil {
@@ -101,6 +100,7 @@ public class JsonUtil {
 
     /**
      * json转任意复杂类型
+     * jsonToObject(json, new TypeReference<DelayTask<Order>>() {});
      * @param json json字符串
      * @param tr 类型泛型
      * @return

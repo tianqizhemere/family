@@ -1,6 +1,8 @@
 package queue;
 
 
+import utils.JsonUtil;
+
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
@@ -31,7 +33,7 @@ public class DelayTask<T extends Runnable> implements Delayed {
     }
 
     public void setStartTime(Long startTime) {
-        this.startTime = startTime;
+        this.startTime = System.currentTimeMillis() + startTime * 1000L;
     }
 
     public Long getId() {
@@ -103,5 +105,10 @@ public class DelayTask<T extends Runnable> implements Delayed {
     @Override
     public int hashCode() {
         return id.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return JsonUtil.toJsonString(this);
     }
 }

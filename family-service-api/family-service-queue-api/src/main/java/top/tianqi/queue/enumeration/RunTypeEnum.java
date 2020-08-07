@@ -1,14 +1,20 @@
 package top.tianqi.queue.enumeration;
 
 /**
- * 调用状态
+ * 执行状态枚举类
  * @Author wkh
  * @Date 2020/8/6 17:31
  */
 public enum RunTypeEnum {
+    /** 已执行*/
+    EXECUTED(1),
+    /** 未执行*/
+    NOT_EXECUTED(0);
+    private int code;
 
-    /**同步**/
-    SYNC,
-    /**异步**/
-    ASYNC;
+    public int getCode() {
+        return code;
+    }
+
+    RunTypeEnum(int code) {}
 }

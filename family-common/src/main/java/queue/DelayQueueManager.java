@@ -1,7 +1,8 @@
 package queue;
 
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.DelayQueue;
@@ -10,37 +11,34 @@ import java.util.concurrent.Executors;
 
 /**
  * 延时队列管理类
- * <p>1.添加任务</p>
- * <p>2.执行任务</p>
+ *
  * @Author wkh
  * @Date 2020/8/4 13:45
  */
 @Component(value = "delayQueueManger")
 public class DelayQueueManager {
-    /** 默认线程数量 */
-    private final static int DEFAULT_THREAD_NUM = 5;
-    /** 固定大小线程池 */
-    private ExecutorService executor;
-    /** 守护线程 */
-    private Thread daemonThread;
-    /** 延时队列 */
-    private DelayQueue<DelayTask<?>> delayQueue;
-    private static DelayQueueManager instance = new DelayQueueManager();
 
-    private DelayQueueManager() {
+    private static final Logger logger = LoggerFactory.getLogger(DelayQueueManager.class);
+
+    /** 默认线程数量*/
+    private final static int DEFAULT_THREAD_NUM = 5;
+    /** 固定大小线程池*/
+    private ExecutorService executor;
+    /** 守护线程*/
+    private Thread daemonThread;
+    /** 延时队列*/
+    private DelayQueue<DelayTask<?>> delayQueue;
+
+    public DelayQueueManager() {
         executor = Executors.newFixedThreadPool(DEFAULT_THREAD_NUM);
         delayQueue = new DelayQueue<>();
         init();
     }
 
-    public static DelayQueueManager getInstance() {
-        return instance;
-    }
-
     /**
      * 初始化
      */
-    public void init() {
+    private void init() {
         daemonThread = new Thread(execute());
         daemonThread.setName("DelayQueueMonitor");
         daemonThread.start();
@@ -48,6 +46,7 @@ public class DelayQueueManager {
 
     /**
      * 执行任务
+     *
      * @return
      */
     private Runnable execute() {
@@ -80,11 +79,13 @@ public class DelayQueueManager {
      * @param task 任务类
      */
     public boolean put(DelayTask<?> task) {
-       return delayQueue.add(task);
+        logger.info("添加任务{}", task);
+        return delayQueue.add(task);
     }
 
     /**
      * 是否包含
+     *
      * @param task 任务类
      * @return
      */
@@ -99,16 +100,26 @@ public class DelayQueueManager {
      * @return
      */
     public boolean removeTask(DelayTask<?> task) {
+        logger.info("清除任务{}", task);
         return delayQueue.remove(task);
     }
 
     /**
      * 重新加入计时队列
+     *
      * @param task 任务类
      * @return
      */
     public boolean reAddQueue(DelayTask<?> task) {
         removeTask(task);
         return put(task);
+    }
+
+    /**
+     * 队列元素个数
+     * @return
+     */
+    public int getSize() {
+        return delayQueue.size();
     }
 }

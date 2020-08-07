@@ -1,6 +1,5 @@
 package utils;
 
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -27,7 +26,7 @@ public class SpringUtil implements ApplicationContextAware {
      * @param clazz 字节码对象
      * @return
      */
-    public static T getBean(Class<T> clazz) {
+    public static <T> T getBean(Class<T> clazz) {
         return applicationContext.getBean(clazz);
     }
 
@@ -55,7 +54,7 @@ public class SpringUtil implements ApplicationContextAware {
      * @param clazz class类型
      * @return
      */
-    public static T getBean(String name, Class<T> clazz) {
+    public static <T> T getBean(String name, Class<T> clazz) {
         return applicationContext.getBean(name, clazz);
     }
 }
