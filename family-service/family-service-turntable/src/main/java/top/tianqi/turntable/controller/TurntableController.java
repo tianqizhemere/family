@@ -1,11 +1,11 @@
 package top.tianqi.turntable.controller;
 
+import org.springframework.web.bind.annotation.*;
 import top.family.turntable.bean.TurntableBean;
 import top.family.turntable.entity.Turntable;
+import top.tianqi.tools.utils.Result;
+import top.tianqi.tools.utils.StatusCode;
 import top.tianqi.turntable.service.TurntableService;
-import utils.Result;
-import utils.StatusCode;
-import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;

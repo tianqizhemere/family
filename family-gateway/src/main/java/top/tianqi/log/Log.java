@@ -1,8 +1,8 @@
 package top.tianqi.log;
 
 
-import utils.EnvironmentUtils;
-import utils.IpUtils;
+import top.tianqi.tools.utils.EnvironmentUtils;
+import top.tianqi.tools.utils.IpUtils;
 
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;

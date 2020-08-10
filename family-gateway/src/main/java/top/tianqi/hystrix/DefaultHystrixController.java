@@ -2,9 +2,9 @@ package top.tianqi.hystrix;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import utils.LogUtil;
-import utils.Result;
-import utils.ResultStatusCode;
+import top.tianqi.tools.utils.LogUtil;
+import top.tianqi.tools.utils.Result;
+import top.tianqi.tools.utils.ResultStatusCode;
 
 import java.util.Date;
 

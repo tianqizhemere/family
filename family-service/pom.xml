@@ -9,6 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <description>
+        server工程用于存放controller的,是实际对外的resful微服务接口
+    </description>
+
     <artifactId>family-service</artifactId>
     <packaging>pom</packaging>
     <modules>
@@ -16,6 +20,7 @@
         <module>family-service-upload</module>
         <module>family-service-quartz</module>
         <module>family-service-queue</module>
+        <module>family-service-config</module>
     </modules>
 
     <dependencies>

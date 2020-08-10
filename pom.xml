@@ -9,13 +9,12 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>family-common-db</module>
-        <module>family-common</module>
         <module>family-eureka</module>
         <module>family-service-api</module>
         <module>family-service</module>
         <module>family-gateway</module>
-        <module>family-auth</module>
+        <module>family-oauth</module>
+        <module>family-components</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -39,6 +38,7 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <encoding>utf-8</encoding>
                 </configuration>
             </plugin>
         </plugins>
@@ -150,18 +150,11 @@
                 <version>1.3.3</version>
             </dependency>
 
-            <!-- shiro -->
+            <!-- Security的OAuth2扩展 -->
             <dependency>
-                <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-spring</artifactId>
-                <version>${shiro.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <!-- 移除shiro-quzrtz,可能会与spring冲突-->
-                        <artifactId>shiro-quartz</artifactId>
-                        <groupId>org.apache.shiro</groupId>
-                    </exclusion>
-                </exclusions>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>2.2.5.RELEASE</version>
             </dependency>
 
             <!--实体类校验-->
@@ -176,6 +169,13 @@
                 <groupId>org.quartz-scheduler</groupId>
                 <artifactId>quartz</artifactId>
                 <version>2.2.2</version>
+            </dependency>
+
+            <!--jwt-->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>8.16</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

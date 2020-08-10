@@ -1,14 +1,14 @@
 package top.tianqi.turntable.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import top.family.turntable.bean.RankingBean;
-import top.tianqi.turntable.dao.RankingMapper;
-import top.family.turntable.entity.Ranking;
-import top.tianqi.turntable.service.RankingService;
-import utils.BeanUtils;
-import utils.DateUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import top.family.turntable.bean.RankingBean;
+import top.family.turntable.entity.Ranking;
+import top.tianqi.tools.utils.BeanUtils;
+import top.tianqi.tools.utils.DateUtils;
+import top.tianqi.turntable.dao.RankingMapper;
+import top.tianqi.turntable.service.RankingService;
 
 import javax.annotation.Resource;
 import java.util.Date;

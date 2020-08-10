@@ -27,7 +27,7 @@
 
         <dependency>
             <groupId>top.tianqi</groupId>
-            <artifactId>family-common</artifactId>
+            <artifactId>family-common-core</artifactId>
             <version>1.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>

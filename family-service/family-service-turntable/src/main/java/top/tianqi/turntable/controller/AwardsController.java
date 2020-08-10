@@ -1,10 +1,10 @@
 package top.tianqi.turntable.controller;
 
-import top.family.turntable.entity.Awards;
-import top.tianqi.turntable.service.AwardsService;
-import utils.Result;
-import utils.StatusCode;
 import org.springframework.web.bind.annotation.*;
+import top.family.turntable.entity.Awards;
+import top.tianqi.tools.utils.Result;
+import top.tianqi.tools.utils.StatusCode;
+import top.tianqi.turntable.service.AwardsService;
 
 import javax.annotation.Resource;
 import java.util.List;

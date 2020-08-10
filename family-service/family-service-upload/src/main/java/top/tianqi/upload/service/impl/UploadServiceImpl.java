@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import top.family.upload.vo.FileVO;
+import top.tianqi.tools.upload.RemoteUploadConfig;
+import top.tianqi.tools.utils.GenerateIdUtils;
+import top.tianqi.tools.utils.JsonUtil;
 import top.tianqi.upload.service.UploadService;
-import upload.RemoteUploadConfig;
-import utils.GenerateIdUtils;
-import utils.JsonUtil;
 
 import java.io.File;
 import java.io.IOException;

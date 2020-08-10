@@ -6,15 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import top.tianqi.tools.utils.Result;
+import top.tianqi.tools.utils.ResultStatusCode;
+import top.tianqi.tools.utils.StatusCode;
 import top.tianqi.upload.service.UploadService;
-import utils.Result;
-import utils.ResultStatusCode;
-import utils.StatusCode;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * 文件上传controller

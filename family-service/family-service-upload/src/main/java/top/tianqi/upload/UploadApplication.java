@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.util.unit.DataSize;
-import upload.RemoteUploadConfig;
+import top.tianqi.tools.upload.RemoteUploadConfig;
 
 import javax.servlet.MultipartConfigElement;
 

@@ -1,11 +1,11 @@
 package top.tianqi.turntable.controller;
 
+import org.springframework.web.bind.annotation.*;
 import top.family.turntable.bean.RankingBean;
 import top.family.turntable.entity.Ranking;
+import top.tianqi.tools.utils.Result;
+import top.tianqi.tools.utils.StatusCode;
 import top.tianqi.turntable.service.RankingService;
-import utils.Result;
-import utils.StatusCode;
-import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;

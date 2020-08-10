@@ -17,10 +17,14 @@
         <module>family-service-queue-api</module>
     </modules>
 
+    <description>
+        API模块,对外暴露Resful接口
+    </description>
+
     <dependencies>
         <dependency>
             <groupId>top.tianqi</groupId>
-            <artifactId>family-common</artifactId>
+            <artifactId>family-common-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
