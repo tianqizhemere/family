@@ -11,18 +11,26 @@ spring:
       max-file-size: @max.file.size@
       # 设置总上传数据大小
       max-request-size: @max.request.size@
+  main:
+    allow-bean-definition-overriding: true
 
 # 默认熔断超时时间30s
 hystrix:
   command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 3000
     hystrix1:
       execution:
         isolation:
           thread:
             timeoutInMilliseconds: 1000
 
+org:
+  my:
+    jwt:
+      #跳过认证的路由
+      skip-auth-urls:
+        - /baidu
+      ############################################
+      #   有效时长
+      #     单位：d:天、h:小时、m:分钟、s:秒
+      ###########################################
+      effective-time: 1m

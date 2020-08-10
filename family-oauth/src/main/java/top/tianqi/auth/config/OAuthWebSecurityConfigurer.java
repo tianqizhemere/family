@@ -3,9 +3,10 @@ package top.tianqi.auth.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Oauth 安全配置
@@ -15,20 +16,43 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class OAuthWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
-    @Override
-    @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
-
+    /**
+     * 实现 configure(HttpSecurity http)方法，
+     * 该方法用于描述安全防护策略
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+
+        http
+                .authorizeRequests()
+                //所有请求均需要验证通过后才能访问
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic()
+                .and()
+                .csrf().disable();
     }
 
+    /**
+     * 创建一个密码加密器 Bean，用于密码校验。
+     * @return PasswordEncoder
+     */
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
+    /**
+     * 如果鉴权服务器需要提供 password 访问模式，
+     * 则需要实现该方法
+     * @return
+     * @throws Exception
+     */
+    @Bean
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }

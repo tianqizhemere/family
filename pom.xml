@@ -177,6 +177,13 @@
                 <artifactId>nimbus-jose-jwt</artifactId>
                 <version>8.16</version>
             </dependency>
+
+            <!-- 创建、解码token -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.9.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

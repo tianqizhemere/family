@@ -38,6 +38,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 请求响应日志打印
+ *
  * @Author wkh
  * @Date 2020/7/2 11:34
  */
@@ -77,7 +78,7 @@ public class ResponseLogFilter implements GlobalFilter, Ordered {
                     if (StringUtils.isNotBlank(uriQuery)) {
                         requestBody.set(uriQuery);
                     }
-                } else if (headers.getContentLength() > 0){
+                } else if (headers.getContentLength() > 0) {
                     return serverRequest.bodyToMono(String.class).flatMap(reqBody -> {
                         requestBody.set(reqBody);
                         // 重写原始请求
