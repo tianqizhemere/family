@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fmaily-gateway</artifactId>
+    <artifactId>family-gateway</artifactId>
 
 
     <dependencies>
