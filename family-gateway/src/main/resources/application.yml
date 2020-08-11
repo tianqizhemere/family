@@ -1,36 +1,17 @@
 server:
-  port: 8081
-spring:
-  application:
-    name: family-gaetway
-  profiles:
-    active: @spring.profiles.active@
-  servlet:
-    multipart:
-      # 设置单个文件大小
-      max-file-size: @max.file.size@
-      # 设置总上传数据大小
-      max-request-size: @max.request.size@
-  main:
-    allow-bean-definition-overriding: true
+  port: 8080
 
-# 默认熔断超时时间30s
-hystrix:
-  command:
-    hystrix1:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 1000
+# 查看routes信息 http://localhost:8081/actuator/gateway/routes
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
-org:
-  my:
-    jwt:
-      #跳过认证的路由
-      skip-auth-urls:
-        - /baidu
-      ############################################
-      #   有效时长
-      #     单位：d:天、h:小时、m:分钟、s:秒
-      ###########################################
-      effective-time: 1m
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.http.server.reactive: debug
+    org.springframework.web.reactive: debug
+    reactor.ipc.netty: debug
+#  config: classpath:logback-spring.xml

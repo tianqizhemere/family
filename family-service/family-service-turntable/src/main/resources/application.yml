@@ -5,6 +5,10 @@ spring:
     active: @spring.profiles.active@
   application:
     name: family-turntable
+  cloud:
+    nacos:
+      discovery:
+        server-addr: @spring.cloud.nacos.serverAddr@
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   global-config:

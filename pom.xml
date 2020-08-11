@@ -9,13 +9,14 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>family-eureka</module>
+        <module>family-nacos</module>
         <module>family-service-api</module>
         <module>family-service</module>
         <module>family-gateway</module>
         <module>family-oauth</module>
         <module>family-components</module>
     </modules>
+    <!-- spring boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -26,6 +27,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <shiro.version>1.4.2</shiro.version>
+        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <build>
@@ -60,6 +62,7 @@
                 <max.request.size>50MB</max.request.size>
                 <!--单个文件上传数据大小-->
                 <max.file.size>5MB</max.file.size>
+                <spring.cloud.nacos.serverAddr>127.0.0.1:8848</spring.cloud.nacos.serverAddr>
             </properties>
         </profile>
         <!--测试环境-->
@@ -70,6 +73,7 @@
                 <file.upload.path>/upload</file.upload.path>
                 <max.request.size>100MB</max.request.size>
                 <max.file.size>10MB</max.file.size>
+                <spring.cloud.nacos.serverAddr>127.0.0.1:8848</spring.cloud.nacos.serverAddr>
             </properties>
         </profile>
         <!--正式环境-->
@@ -80,6 +84,7 @@
                 <file.upload.path>/upload</file.upload.path>
                 <max.request.size>100MB</max.request.size>
                 <max.file.size>10MB</max.file.size>
+                <spring.cloud.nacos.serverAddr>127.0.0.1:8848</spring.cloud.nacos.serverAddr>
             </properties>
         </profile>
     </profiles>
@@ -88,10 +93,20 @@
     <!-- 声明依赖 -->
     <dependencyManagement>
         <dependencies>
+            <!-- spring cloud Hoxton.SR3 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--  spring cloud alibaba  2.1.0.RELEASE   依赖包  -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
