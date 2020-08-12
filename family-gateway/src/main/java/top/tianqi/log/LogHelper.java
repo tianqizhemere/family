@@ -115,6 +115,6 @@ public class LogHelper {
                 || mediaType.equals(MediaType.IMAGE_GIF)
                 || mediaType.equals(MediaType.IMAGE_JPEG)
                 || mediaType.equals(MediaType.IMAGE_PNG)
-                || mediaType.equals(MediaType.MULTIPART_MIXED);
+                || mediaType.equals(MediaType.MULTIPART_FORM_DATA);
     }
 }

@@ -23,6 +23,10 @@ public class Result<T> implements Serializable {
     /** 返回数据 */
     private T data;
 
+    public Result(Integer code, String message) {
+        this(true, code, message);
+    }
+
     public Result(Integer code, String message, T data) {
         this(true, code, message, data);
     }

@@ -1,3 +1,5 @@
+server:
+  port: 8080
 spring:
   application:
     name: family-gateway
@@ -9,20 +11,43 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848 #naocs配置中心地址
+        group: ${nacos.config.group}
+        # 默认应用名
+        service: ${spring.application.name}
+        server-addr: ${nacos.config.server-addr} #naocs配置中心地址
+        namespace: ${nacos.config.namespace}
+      config:
+        encode: UTF-8
+        file-extension: yaml
+        group: ${nacos.config.group}
+        server-addr: ${nacos.config.server-addr} #naocs配置中心地址
+        namespace: ${nacos.config.namespace}
+    # 让网关从nacos中获取服务信息
     gateway:
-      discovery:      #是否与服务发现组件进行结合，通过 serviceId(必须设置成大写) 转发到具体的服务实例。
-        #默认为false，
-        #设为true便开启通过服务中心的自动根据 serviceId 创建路由的功能。
-        locator:      #路由访问方式：http://Gateway_HOST:Gateway_PORT/大写的serviceId/**，其中微服务应用名默认大写访问。
-          enabled: false
-      enabled: true #如果包含启动程序，但出于某些原因，不希望启用网关，则设置spring.cloud.gateway.enabled=false
+      discovery:
+        locator:
+          enabled: true
+
+# 查看routes信息 http://localhost:8081/actuator/gateway/routes
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 # 自定义配置项
 nacos:
   config:
     server-addr: 127.0.0.1:8848 #nacos的serverAdd配置
     group: FAMILY-GATEWAY #分组的配置
-    file-extension: json
     data-id: family-gateway.json #data-id的配置
-    namespace: 978ed8da-43cd-4a4b-8072-68d3b6d36df7
+    namespace: ca2f8213-72f5-4a4e-8c89-69403f870cf3
+
+logging:
+  level:
+    org.springframework.cloud.gateway: trace
+    org.springframework.http.server.reactive: debug
+    org.springframework.web.reactive: debug
+    reactor.ipc.netty: debug
+#  config: classpath:logback-spring.xml
+

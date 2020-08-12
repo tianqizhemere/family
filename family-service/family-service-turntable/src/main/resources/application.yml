@@ -9,6 +9,9 @@ spring:
     nacos:
       discovery:
         server-addr: @spring.cloud.nacos.serverAddr@
+        namespace: ca2f8213-72f5-4a4e-8c89-69403f870cf3
+
+
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   global-config:

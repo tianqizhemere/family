@@ -63,8 +63,10 @@ public class DynamicRoutingConfig implements ApplicationEventPublisherAware {
             @Override
             public void receiveConfigInfo(String configInfo) {
                 logger.info(configInfo);
+                // 刷新网关路由
                 boolean refreshGatewayRoute = JSONObject.parseObject(configInfo).getBoolean("refreshGatewayRoute");
                 if (refreshGatewayRoute) {
+                    // 路由配置
                     List<RouteEntity> list = JSON.parseArray(JSONObject.parseObject(configInfo).getString("routeList")).toJavaList(RouteEntity.class);
                     for (RouteEntity route : list) {
                         update(assembleRouteDefinition(route));
@@ -102,6 +104,11 @@ public class DynamicRoutingConfig implements ApplicationEventPublisherAware {
         }
     }
 
+    /**
+     * 路由信息组装
+     * @param routeEntity
+     * @return
+     */
     public RouteDefinition assembleRouteDefinition(RouteEntity routeEntity) {
         RouteDefinition definition = new RouteDefinition();
         // ID
@@ -129,14 +136,4 @@ public class DynamicRoutingConfig implements ApplicationEventPublisherAware {
         definition.setUri(uri);
         return definition;
     }
-
-//    @Value("${spring.cloud.nacos.discovery.server-addr}")
-//    public void setNacosServerAddr(String nacosServerAddr) {
-//        NACOS_SERVER_ADDR = nacosServerAddr;
-//    }
-//
-//    @Value("${spring.cloud.nacos.discovery.namespace}")
-//    public void setNacosNamespace(String nacosNamespace) {
-//        NACOS_NAMESPACE = nacosNamespace;
-//    }
 }

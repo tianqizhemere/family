@@ -9,6 +9,7 @@ import java.time.ZonedDateTime;
 
 /**
  * 日志实体类
+ *
  * @Author wkh
  * @Date 2020/7/1 17:19
  */
@@ -73,6 +74,7 @@ public class Log {
         private TYPE() {
         }
     }
+
     public TYPE getLogType() {
         return logType;
     }
