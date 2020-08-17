@@ -32,7 +32,7 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 /**
- * 配置Spring Cloud Gateway动态路由, 实现spring提供的事物推送接口
+ * 通过Nacos动态配置Spring Cloud Gateway路由,并实现spring提供的事物推送接口
  *
  * @Author wkh
  * @Date 2020/8/11 14:00

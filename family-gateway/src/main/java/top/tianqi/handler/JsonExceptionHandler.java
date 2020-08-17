@@ -74,7 +74,7 @@ public class JsonExceptionHandler extends DefaultErrorWebExceptionHandler {
 
     /**
      * HTTP响应状态码的封装
-     * 根据STATUS_CODE获取对应的HttpStatus
+     * 根据STATUS_CODE_KEY获取对应的HttpStatus
      * */
     @Override
     protected HttpStatus getHttpStatus(Map<String, Object> errorAttributes) {

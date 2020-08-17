@@ -27,7 +27,7 @@ spring:
         locator:
           enabled: true
 
-# 查看routes信息 http://localhost:8081/actuator/gateway/routes
+# 查看routes信息 http://localhost:8080/actuator/gateway/routes
 management:
   endpoints:
     web:
@@ -58,4 +58,3 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 1000
-
