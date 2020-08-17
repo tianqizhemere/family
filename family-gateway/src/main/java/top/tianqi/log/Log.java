@@ -19,17 +19,27 @@ public class Log {
     private Log.LEVEL level;
     private String appEnv;
     private String applicationName;
+    /** 主机名称 */
     private String hostName;
+    /** 请求id*/
     private String ip;
+    /** 请求执行时间 */
     private Long handleTime;
     private String timeStamp;
+    /** 请求路径 */
     private String requestUrl;
+    /** 用户名 */
     private String userName;
+    /** 请求账号*/
     private String account;
+    /** 请求体内容*/
     private String requestBody;
+    /** 响应体内容*/
     private String responseBody;
     private String requestId;
+    /** 请求的方法名称*/
     private String requestMethod;
+    /** http请求状态码*/
     private Integer status;
     private String serverIp;
     private String sessionId;

@@ -36,7 +36,8 @@ public class LogHelper {
     }
 
     /**
-     * 记录日志（后期可扩展为通过MQ将日志发送到ELK系统）
+     * 记录日志
+     * 后期可扩展为通过MQ将日志发送到ELK系统
      * @param dto Log
      * @return Mono.empty()
      */

@@ -5,9 +5,8 @@ spring:
     name: family-gateway
   jackson:
     serialization:
+      # 格式化输出
       indent-output: true
-  main:
-    allow-bean-definition-overriding: true
   cloud:
     nacos:
       discovery:
@@ -48,6 +47,15 @@ logging:
     org.springframework.cloud.gateway: trace
     org.springframework.http.server.reactive: debug
     org.springframework.web.reactive: debug
+    com.alibaba.nacos.client.naming: warn
     reactor.ipc.netty: debug
-#  config: classpath:logback-spring.xml
+
+# 配置熔断器
+hystrix:
+  command:
+    hystrix1:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
 

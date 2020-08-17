@@ -23,6 +23,6 @@ public class DefaultHystrixController {
     @RequestMapping("/fallback")
     public Result<String> fallback(){
         LogUtil.error(new Date() + "，触发熔断");
-        return new Result<>(false, 400, ResultStatusCode.BAD_REQUEST.getMsg());
+        return new Result<>(false, ResultStatusCode.BAD_REQUEST.getCode(), ResultStatusCode.BAD_REQUEST.getMsg());
     }
 }

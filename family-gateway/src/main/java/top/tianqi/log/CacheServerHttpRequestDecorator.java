@@ -22,7 +22,8 @@ import java.net.URI;
 import java.util.Objects;
 
 /**
- * 对ServerHttpRequest进行二次封装，解决requestBody只能读取一次的问题
+ * <p>自动缓存下请求体，读取的时候读取缓存内容</p>
+ * <p>对ServerHttpRequest进行二次封装，解决requestBody只能读取一次的问题</p>
  *
  * @author wkh
  * @Date 2020/7/1
