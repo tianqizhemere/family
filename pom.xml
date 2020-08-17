@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>top.tianqi</groupId>
-    <artifactId>family</artifactId>
+    <artifactId>vitality</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>family-service-api</module>
-        <module>family-service</module>
-        <module>family-gateway</module>
-        <module>family-oauth</module>
-        <module>family-components</module>
+        <module>vitality-service-api</module>
+        <module>vitality-service</module>
+        <module>vitality-gateway</module>
+        <module>vitality-oauth</module>
+        <module>vitality-components</module>
     </modules>
     <!-- spring boot -->
     <parent>
